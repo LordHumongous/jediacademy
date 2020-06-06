@@ -127,9 +127,21 @@ typedef struct {
 		return RE_Font_DrawString(x, y, s, rgba, iFontHandle, iMaxPixelWidth, scale);
 	}
 #else
-	int		(*Font_HeightPixels)(const int index, const float scale = 1.0f);
-	int		(*Font_StrLenPixels)(const char *s, const int index, const float scale = 1.0f);
-	void	(*Font_DrawString)(int x, int y, const char *s, const float *rgba, const int iFontHandle, int iMaxPixelWidth, const float scale = 1.0f);
+	int		(*Font_HeightPixels_fp)(const int index, const float scale);
+	int		(*Font_StrLenPixels_fp)(const char *s, const int index, const float scale);
+	void	(*Font_DrawString_fp)(int x, int y, const char *s, const float *rgba, const int iFontHandle, int iMaxPixelWidth, const float scale);
+	int		Font_HeightPixels(const int index, const float scale = 1.0f)
+	{
+			return Font_HeightPixels_fp(index, scale);
+	}
+	int		Font_StrLenPixels(const char* s, const int index, const float scale = 1.0f)
+	{
+			return Font_StrLenPixels(s, index, scale);
+	}
+	void	Font_DrawString(int x, int y, const char* s, const float* rgba, const int iFontHandle, int iMaxPixelWidth, const float scale = 1.0f)
+	{
+			Font_DrawString_fp(x, y, s, rgba, iFontHandle, iMaxPixelWidth, scale);
+	}
 #endif
 	int		(*Font_StrLenChars) (const char *s);
 	qboolean (*Language_IsAsian) (void);

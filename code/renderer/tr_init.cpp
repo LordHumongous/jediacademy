@@ -1623,9 +1623,9 @@ refexport_t *GetRefAPI ( int apiVersion ) {
 
 	re.RegisterFont = RE_RegisterFont;
 #ifndef _XBOX
-	re.Font_StrLenPixels = RE_Font_StrLenPixels;
-	re.Font_HeightPixels = RE_Font_HeightPixels;	
-	re.Font_DrawString = RE_Font_DrawString;
+	re.Font_StrLenPixels_fp = RE_Font_StrLenPixels;
+	re.Font_HeightPixels_fp = RE_Font_HeightPixels;
+	re.Font_DrawString_fp = RE_Font_DrawString;
 #endif
 	re.Font_StrLenChars = RE_Font_StrLenChars;
 	re.Language_IsAsian = Language_IsAsian;

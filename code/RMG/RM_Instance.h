@@ -10,6 +10,8 @@
 #include "../qcommon/cm_landscape.h"
 #endif
 
+#include <string>
+
 enum	CRMAutomapSymbol
 {
 	AUTOMAP_NONE = 0,
@@ -35,9 +37,9 @@ protected:
 	CRMObjective*	mObjective;		// Objective associated with this instance
 
 	// optional instance specific strings for objective
-	string			mMessage;		// message outputed when objective is completed
-	string			mDescription;	// description of objective
-	string			mInfo;			// more info for objective
+	std::string		mMessage;		// message outputed when objective is completed
+	std::string		mDescription;	// description of objective
+	std::string		mInfo;			// more info for objective
 
 	float			mSpacingRadius;	// Radius to space instances with
 	float			mFlattenRadius;	// Radius to flatten under instances

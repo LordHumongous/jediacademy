@@ -235,9 +235,9 @@ void CL_InitUI( void ) {
 	uii.R_RegisterShaderNoMip	= re.RegisterShaderNoMip;
 	uii.R_RegisterFont			= re.RegisterFont;
 #ifndef _XBOX
-	uii.R_Font_StrLenPixels		= re.Font_StrLenPixels;
-	uii.R_Font_HeightPixels		= re.Font_HeightPixels;
-	uii.R_Font_DrawString		= re.Font_DrawString;
+	uii.R_Font_StrLenPixels_fp	= re.Font_StrLenPixels_fp;
+	uii.R_Font_HeightPixels_fp	= re.Font_HeightPixels_fp;
+	uii.R_Font_DrawString_fp	= re.Font_DrawString_fp;
 #endif
 	uii.R_Font_StrLenChars		= re.Font_StrLenChars;
 	uii.Language_IsAsian		= re.Language_IsAsian;

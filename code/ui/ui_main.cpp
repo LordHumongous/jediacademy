@@ -2557,7 +2557,7 @@ void _UI_Init( qboolean inGameLoad )
 	uiInfo.uiDC.feederItemImage		= &UI_FeederItemImage;
 	uiInfo.uiDC.feederItemText		= &UI_FeederItemText;
 #ifdef _IMMERSION
-	uiInfo.uiDC.registerForce		= &trap_FF_Register;
+	uiInfo.uiDC.registerForce_fp	= &trap_FF_Register;
 	uiInfo.uiDC.startForce			= &trap_FF_Start;
 #endif // _IMMERSION
 	uiInfo.uiDC.ownerDrawHandleKey	= &UI_OwnerDrawHandleKey;
@@ -2565,8 +2565,8 @@ void _UI_Init( qboolean inGameLoad )
 	uiInfo.uiDC.registerSkin		= re.RegisterSkin;
 
 #ifndef _XBOX
-	uiInfo.uiDC.g2_SetSkin = G2API_SetSkin;
-	uiInfo.uiDC.g2_SetBoneAnim = G2API_SetBoneAnim;
+	uiInfo.uiDC.g2_SetSkin_fp		= G2API_SetSkin;
+	uiInfo.uiDC.g2_SetBoneAnim_fp	= G2API_SetBoneAnim;
 #endif
 	uiInfo.uiDC.g2_RemoveGhoul2Model = G2API_RemoveGhoul2Model;
 	uiInfo.uiDC.g2_InitGhoul2Model = G2API_InitGhoul2Model;

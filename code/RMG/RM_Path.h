@@ -18,6 +18,8 @@
 #include "../qcommon/cm_randomterrain.h"
 #endif
 
+#include <string>
+
 class CRMPathManager;
 
 // directions you can proceed from cells 
@@ -42,7 +44,7 @@ class CRMNode
 {
 private:
 
-	string			mName;					// name of node - "" if not used yet
+	std::string		mName;					// name of node - "" if not used yet
 	vec3_t			mPos;					// where node is
 	int				mPathID[DIR_MAX]; 		// path id's that lead from this node
 	bool			mAreaPointPlaced;		// false if no area point here yet.
@@ -76,7 +78,7 @@ class CRMLoc
 {
 private:
 
-	string			mName;		// name of location
+	std::string		mName;		// name of location
 	int				mMinDepth;
 	int				mMaxDepth;
 	int				mMinPaths;
@@ -166,7 +168,7 @@ private:
 	float			mRiverBedDepth;
 	float			mRiverDeviation;
 	float			mRiverBreadth;
-	string			mRiverBridge;
+	std::string		mRiverBridge;
 	vec3_t			mRiverPos;
 
 	static int neighbor_x[DIR_MAX];
@@ -214,7 +216,7 @@ public:
 								  const float beddepth = 0.0f, 
 								  const float deviation = 0.25f, 
 								  const float breadth = 7,
-								  string bridge_name = "");
+								  std::string bridge_name = "");
 
 	void		GeneratePaths	( symmetry_t symmetric = SYMMETRY_NONE );
 	void		GenerateRivers  ( );
