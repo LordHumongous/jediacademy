@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/code/Debug
+/code/FinalBuild
+/code/Release
+/code/.vs/JediAcademy/v16
+/code/win32/winquake.res
+*.vcxproj.user

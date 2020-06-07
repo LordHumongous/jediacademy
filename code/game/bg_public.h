@@ -156,8 +156,13 @@ typedef struct {
 #ifdef _XBOX
 	Trace_Functor_t	trace;
 #else
-	void		(*trace)( trace_t *results, const vec3_t start, const vec3_t mins, const vec3_t maxs, const vec3_t end, 
-						const int passEntityNum, const int contentMask, const EG2_Collision eG2TraceType = (EG2_Collision)0, const int useLod = 0 );
+	void		(*trace_fp)( trace_t *results, const vec3_t start, const vec3_t mins, const vec3_t maxs, const vec3_t end, 
+							const int passEntityNum, const int contentMask, const EG2_Collision eG2TraceType, const int useLod);
+	void		trace( trace_t* results, const vec3_t start, const vec3_t mins, const vec3_t maxs, const vec3_t end,
+						const int passEntityNum, const int contentMask, const EG2_Collision eG2TraceType = (EG2_Collision)0, const int useLod = 0 )
+	{
+				trace_fp(results, start, mins, maxs, end, passEntityNum, contentMask, eG2TraceType, useLod);
+	}
 #endif
 	int			(*pointcontents)( const vec3_t point, int passEntityNum );
 } pmove_t;

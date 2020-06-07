@@ -760,12 +760,16 @@ LPCSTR Leetify( LPCSTR psString )
 							'O','0','L','1','E','3','A','4','S','5','T','7','I','!','H','#'	// laziness because of strchr()
 						};
 
+#if 0
 		char *p;
 		for (int i=0; i<sizeof(cReplace); i+=2)
 		{
 			while ((p=strchr(str.c_str(),cReplace[i]))!=NULL)
 				*p = cReplace[i+1];
 		}
+		// We can't use an immutable string here. Needs to be refactored.
+		check(false);
+#endif
 	}
 
 	return str.c_str();

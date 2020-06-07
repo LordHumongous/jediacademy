@@ -2,11 +2,13 @@
 //
 #include "../server/exe_headers.h"
 
-#include "../qcommon/sstring.h"	// stl string class won't compile in here (MS shite), so use Gil's.
+#include "../qcommon/sstring.h"	// stl std::string class won't compile in here (MS shite), so use Gil's.
 #include "tr_local.h"
 #include "tr_font.h"
 
 #include "../qcommon/stringed_ingame.h"
+
+#include <string>
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
@@ -26,14 +28,14 @@ typedef enum
 	eThai,		// 16x16 cells with glyphs against left edge, special file (tha_widths.dat) for variable widths
 } Language_e;
 
-// this is to cut down on all the stupid string compares I've been doing, and convert asian stuff to switch-case
+// this is to cut down on all the stupid std::string compares I've been doing, and convert asian stuff to switch-case
 //
 Language_e GetLanguageEnum()
 {
 	static int			iSE_Language_ModificationCount = -1234;	// any old silly value that won't match the cvar mod count
 	static Language_e	eLanguage = eWestern;
 
-	// only re-strcmp() when language string has changed from what we knew it as...
+	// only re-strcmp() when language std::string has changed from what we knew it as...
 	//
 	if (iSE_Language_ModificationCount != se_language->modificationCount )
 	{
@@ -79,7 +81,7 @@ struct ThaiCodes_t
 {
 	map <int, int>	m_mapValidCodes;
 	vector<int>		m_viGlyphWidths;	
-	string			m_strInitFailureReason;	// so we don't have to keep retrying to work this out
+	std::string		m_strInitFailureReason;	// so we don't have to keep retrying to work this out
 
 	void Clear( void )
 	{
@@ -590,7 +592,8 @@ static int Thai_ValidTISCode( const byte *psString, int &iThaiBytes )
 
 		// thai codes can be up to 3 bytes long, so see how high we can get...
 		//
-		for (int i=0; i<3; i++)
+		int i = 0;
+		for (i=0; i<3; i++)
 		{			
 			CodeToTry.sChars[i] = psString[i];
 
@@ -1425,7 +1428,7 @@ int RE_Font_HeightPixels(const int iFontHandle, const float fScale)
 	return(0);
 }
 
-// iMaxPixelWidth is -1 for "all of string", else pixel display count...
+// iMaxPixelWidth is -1 for "all of std::string", else pixel display count...
 //
 void RE_Font_DrawString(int ox, int oy, const char *psText, const float *rgba, const int iFontHandle, int iMaxPixelWidth, const float fScale)
 {
@@ -1669,9 +1672,11 @@ void R_ReloadFonts_f(void)
 	//
 	vector <sstring_t> vstrFonts;
 
-	for (int iFontToFind = 1; iFontToFind < g_iCurrentFontIndex; iFontToFind++)
+	int iFontToFind = 1;
+	for (iFontToFind = 1; iFontToFind < g_iCurrentFontIndex; iFontToFind++)
 	{		
-		for (FontIndexMap_t::iterator it = g_mapFontIndexes.begin(); it != g_mapFontIndexes.end(); ++it)
+		FontIndexMap_t::iterator it;
+		for (it = g_mapFontIndexes.begin(); it != g_mapFontIndexes.end(); ++it)
 		{
 			if (iFontToFind == (*it).second)
 			{
@@ -1691,7 +1696,7 @@ void R_ReloadFonts_f(void)
 		R_ShutdownFonts();
 		R_InitFonts();
 		//
-		// and re-register our fonts in the same order as before (note that some menu items etc cache the string lengths so really a vid_restart is better, but this is just for my testing)
+		// and re-register our fonts in the same order as before (note that some menu items etc cache the std::string lengths so really a vid_restart is better, but this is just for my testing)
 		//
 		for (int iFont = 0; iFont < vstrFonts.size(); iFont++)
 		{
