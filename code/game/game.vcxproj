@@ -13,10 +13,6 @@
       <Configuration>Release</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="SHDebug|Win32">
-      <Configuration>SHDebug</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <SccProjectName>"$/jedi/code", ROBAAAAA</SccProjectName>
@@ -42,11 +38,6 @@
     <PlatformToolset>v142</PlatformToolset>
     <UseOfMfc>false</UseOfMfc>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <PlatformToolset>v142</PlatformToolset>
-    <UseOfMfc>false</UseOfMfc>
-  </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
@@ -59,18 +50,9 @@
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>16.0.29403.142</_ProjectFileVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">
-    <OutDir>.\..\SHDebug\</OutDir>
-    <IntDir>.\..\SHDebug\game\</IntDir>
-    <LinkIncremental>true</LinkIncremental>
-    <TargetName>jagamex86</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>.\..\Debug\</OutDir>
@@ -90,49 +72,6 @@
     <LinkIncremental>false</LinkIncremental>
     <TargetName>jagamex86</TargetName>
   </PropertyGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">
-    <ClCompile>
-      <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\ICARUS;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_DEBUG;MEM_DEBUG;WIN32;_WINDOWS;_IMMERSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <MinimalRebuild>true</MinimalRebuild>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>g_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile>.\..\SHDebug\game/game.pch</PrecompiledHeaderOutputFile>
-      <AssemblerListingLocation>.\..\SHDebug\game/</AssemblerListingLocation>
-      <ObjectFileName>.\..\SHDebug\game/</ObjectFileName>
-      <ProgramDataBaseFileName>.\..\SHDebug\game/</ProgramDataBaseFileName>
-      <BrowseInformation>false</BrowseInformation>
-      <WarningLevel>Level4</WarningLevel>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
-      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-      <CompileAs>Default</CompileAs>
-    </ClCompile>
-    <Link>
-      <AdditionalOptions>/MACHINE:I386 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>../shdebug/game/smrtheap.obj;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>..\SHDebug/jk2gamex86.dll</OutputFile>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
-      <ModuleDefinitionFile>.\game.def</ModuleDefinitionFile>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ProgramDatabaseFile>.\..\SHDebug/jk3gamex86.pdb</ProgramDatabaseFile>
-      <SubSystem>Windows</SubSystem>
-      <BaseAddress>0x20000000</BaseAddress>
-      <ImportLibrary>.\..\SHDebug/jk2gamex86.lib</ImportLibrary>
-    </Link>
-    <Midl>
-      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <MkTypLibCompatible>true</MkTypLibCompatible>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
-      <TargetEnvironment>Win32</TargetEnvironment>
-      <TypeLibraryName>.\..\SHDebug/game.tlb</TypeLibraryName>
-    </Midl>
-    <ResourceCompile>
-      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <Culture>0x0409</Culture>
-    </ResourceCompile>
-  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
@@ -277,254 +216,212 @@
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cg_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">cg_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="..\cgame\cg_consolecmds.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cg_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">cg_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="..\cgame\cg_credits.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cg_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">cg_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="..\cgame\cg_draw.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cg_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">cg_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="..\cgame\cg_drawtools.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cg_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">cg_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="..\cgame\cg_effects.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cg_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">cg_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="..\cgame\cg_ents.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cg_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">cg_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="..\cgame\cg_event.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cg_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">cg_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="..\cgame\cg_headers.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cg_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">cg_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="..\cgame\cg_info.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cg_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">cg_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="..\cgame\cg_lights.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cg_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">cg_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="..\cgame\cg_localents.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cg_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">cg_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="..\cgame\cg_main.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cg_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">cg_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="..\cgame\cg_marks.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cg_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">cg_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="..\cgame\cg_players.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cg_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">cg_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="..\cgame\cg_playerstate.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cg_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">cg_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="..\cgame\cg_predict.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cg_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">cg_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="..\cgame\cg_scoreboard.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cg_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">cg_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="..\cgame\cg_servercmds.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cg_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">cg_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="..\cgame\cg_snapshot.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cg_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">cg_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="..\cgame\cg_syscalls.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cg_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">cg_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="..\cgame\cg_text.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cg_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">cg_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="..\cgame\cg_view.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cg_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">cg_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="..\cgame\cg_weapons.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cg_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">cg_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="..\cgame\FxPrimitives.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">common_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">common_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">common_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">common_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="..\cgame\FxScheduler.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">common_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">common_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">common_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">common_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="..\cgame\FxSystem.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">common_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">common_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">common_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">common_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="..\cgame\FxTemplate.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">common_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">common_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">common_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">common_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="..\cgame\FxUtil.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">common_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">common_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">common_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">common_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="..\cgame\FX_ATSTMain.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cg_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">cg_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="..\cgame\FX_Blaster.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cg_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">cg_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="..\cgame\FX_Bowcaster.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cg_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">cg_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="..\cgame\FX_BryarPistol.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cg_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">cg_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="..\cgame\FX_Concussion.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\..\Release\game/game.pch</PrecompiledHeaderOutputFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">cg_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="..\cgame\FX_DEMP2.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cg_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">cg_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="..\cgame\FX_Disruptor.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cg_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">cg_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="..\cgame\FX_Emplaced.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cg_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">cg_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="..\cgame\FX_Flechette.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cg_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">cg_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="..\cgame\FX_HeavyRepeater.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cg_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">cg_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="..\cgame\FX_NoghriShot.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cg_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">cg_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="..\cgame\FX_RocketLauncher.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cg_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">cg_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="..\cgame\FX_TuskenShot.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cg_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">cg_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="..\icarus\BlockStream.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -544,12 +441,6 @@
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </PrecompiledHeaderOutputFile>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">
-      </PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">
-      </PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">
       </PrecompiledHeaderOutputFile>
     </ClCompile>
     <ClCompile Include="..\icarus\IcarusImplementation.cpp">
@@ -571,12 +462,6 @@
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </PrecompiledHeaderOutputFile>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">
-      </PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">
-      </PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">
-      </PrecompiledHeaderOutputFile>
     </ClCompile>
     <ClCompile Include="..\icarus\Sequence.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -596,12 +481,6 @@
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </PrecompiledHeaderOutputFile>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">
-      </PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">
-      </PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">
       </PrecompiledHeaderOutputFile>
     </ClCompile>
     <ClCompile Include="..\icarus\Sequencer.cpp">
@@ -623,12 +502,6 @@
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </PrecompiledHeaderOutputFile>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">
-      </PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">
-      </PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">
-      </PrecompiledHeaderOutputFile>
     </ClCompile>
     <ClCompile Include="..\icarus\TaskManager.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -649,18 +522,11 @@
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </PrecompiledHeaderOutputFile>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">
-      </PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">
-      </PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">
-      </PrecompiledHeaderOutputFile>
     </ClCompile>
     <ClCompile Include="..\qcommon\tri_coll_test.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">common_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">common_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">common_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">common_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="..\Ratl\ratl.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -668,8 +534,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">
       </PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">
       </PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\Ravl\CBounds.cpp">
@@ -679,8 +543,6 @@
       </PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">
-      </PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\Ravl\CVec.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -688,8 +550,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">
       </PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">
       </PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\Rufl\hfile.cpp">
@@ -699,8 +559,6 @@
       </PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">
-      </PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\Rufl\hstring.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -708,8 +566,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">
       </PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">
       </PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\Rufl\random.cpp">
@@ -719,15 +575,11 @@
       </PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">
-      </PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\smartheap\SMRTHEAP.C">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">
-      </PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\ui\gameinfo.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -735,8 +587,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">
       </PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">
       </PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="AI_Animal.cpp" />
@@ -773,43 +623,36 @@
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">CompileAsCpp</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsCpp</CompileAs>
-      <CompileAs Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">CompileAsCpp</CompileAs>
     </ClCompile>
     <ClCompile Include="bg_lib.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="bg_misc.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">common_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">common_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">common_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">common_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="bg_pangles.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">common_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">common_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">common_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">common_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="bg_panimate.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">common_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">common_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">common_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">common_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="bg_pmove.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">common_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">common_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">common_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">common_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="bg_slidemove.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">common_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">common_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">common_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">common_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="bg_vehicleLoad.c">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -821,15 +664,11 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </PrecompiledHeader>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsCpp</CompileAs>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">
-      </PrecompiledHeader>
-      <CompileAs Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">CompileAsCpp</CompileAs>
     </ClCompile>
     <ClCompile Include="FighterNPC.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">CompileAsCpp</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsCpp</CompileAs>
-      <CompileAs Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">CompileAsCpp</CompileAs>
     </ClCompile>
     <ClCompile Include="genericparser2.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -837,8 +676,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">
       </PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">
       </PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="g_active.cpp" />
@@ -857,8 +694,6 @@
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">../cgame/cg_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">../cgame/cg_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">../cgame/cg_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="g_inventory.cpp" />
     <ClCompile Include="g_itemLoad.cpp" />
@@ -891,7 +726,6 @@
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">CompileAsCpp</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsCpp</CompileAs>
-      <CompileAs Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">CompileAsCpp</CompileAs>
     </ClCompile>
     <ClCompile Include="g_weapon.cpp">
       <PreprocessToFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</PreprocessToFile>
@@ -902,8 +736,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">
       </PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">
       </PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="NPC.cpp" />
@@ -923,13 +755,11 @@
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">common_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">common_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">common_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">common_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="q_shared.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">common_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='FinalBuild|Win32'">common_headers.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">common_headers.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">common_headers.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="SpeederNPC.c">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -943,9 +773,6 @@
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </PrecompiledHeaderFile>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsCpp</CompileAs>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">
-      </PrecompiledHeader>
-      <CompileAs Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">CompileAsCpp</CompileAs>
     </ClCompile>
     <ClCompile Include="WalkerNPC.c">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -961,9 +788,6 @@
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </PrecompiledHeaderFile>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsCpp</CompileAs>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">
-      </PrecompiledHeader>
-      <CompileAs Condition="'$(Configuration)|$(Platform)'=='SHDebug|Win32'">CompileAsCpp</CompileAs>
     </ClCompile>
     <ClCompile Include="wp_saber.cpp" />
     <ClCompile Include="wp_saberLoad.cpp" />
