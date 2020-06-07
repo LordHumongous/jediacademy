@@ -21,6 +21,8 @@ extern byte *Compress_JPG(int *pOutputSize, int quality, int image_width, int im
 #include "..\game\weapons.h"
 #include "..\game\g_items.h"
 
+#include <string>
+
 #ifdef _XBOX
 #include <stdlib.h>
 //support for mbstowcs
@@ -145,31 +147,25 @@ static const char *GetString_FailedToOpenSaveGame(const char *psFilename, qboole
 
 // (copes with up to 8 ptr returns at once)
 //
-static LPCSTR SG_AddSavePath( LPCSTR psPathlessBaseName )
+static LPCSTR SG_AddSavePath(LPCSTR psPathlessBaseName)
 {
 	static char sSaveName[8][MAX_OSPATH]; 
 	static int  i=0;
 
 	i=++i&7;
 
-	if(psPathlessBaseName)
+	std::size_t Pos = 0;
+	std::string PathCopy = psPathlessBaseName;
+	if(!PathCopy.empty())
 	{
-#if 0
-		char *p = strchr(psPathlessBaseName,'/');
-		if (p)
+		Pos = PathCopy.find('/', Pos);
+		while (Pos != std::string::npos)
 		{
-			while (p)
-			{
-				*p = '_';
-				p = strchr(p,'/');
-			}
+			PathCopy[Pos] = '_';
+			Pos = PathCopy.find('/', Pos);
 		}
-#else
-		// Needs to be re-evaluated. We should create a copy of the string, but that also introduces memory cleanup that needs to happen.
-		assert(false);
-#endif
 	}
-	Com_sprintf( sSaveName[i], MAX_OSPATH, "saves/%s.sav", psPathlessBaseName );
+	Com_sprintf( sSaveName[i], MAX_OSPATH, "saves/%s.sav", PathCopy.c_str());
 	return sSaveName[i];
 }
 
