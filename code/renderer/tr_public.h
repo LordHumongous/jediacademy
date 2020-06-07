@@ -136,7 +136,7 @@ typedef struct {
 	}
 	int		Font_StrLenPixels(const char* s, const int index, const float scale = 1.0f)
 	{
-			return Font_StrLenPixels(s, index, scale);
+			return Font_StrLenPixels_fp(s, index, scale);
 	}
 	void	Font_DrawString(int x, int y, const char* s, const float* rgba, const int iFontHandle, int iMaxPixelWidth, const float scale = 1.0f)
 	{
